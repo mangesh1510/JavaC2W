@@ -1,0 +1,41 @@
+class Methods{
+
+     int x=10;
+     static int y=234;
+
+     Methods(int x){
+             System.out.println(x);
+             System.out.println(this.x);
+     }
+     void fun(Methods th){
+             System.out.println(th.x);
+             System.out.println(this.y);
+     }
+
+        public static void main(String args[]){
+
+                Methods obj1=new Methods(25); //Methods(obj1,25); Constructer call
+
+                obj1.fun(obj1);
+
+                obj1.x=500;
+
+
+                Methods obj2=new Methods(35);
+
+                obj2.fun(obj1);
+
+                obj1.fun(obj1);
+
+                System.out.println("before "+Methods.y+" "+System.identityHashCode(Methods.y));
+                Methods.y=235;
+                System.out.println("after "+Methods.y+" "+System.identityHashCode(Methods.y));
+
+                obj1.y=1000;
+                System.out.println("before "+obj1.y+" "+System.identityHashCode(obj1.y));
+                System.out.println("before "+obj2.y+" "+System.identityHashCode(obj2.y));
+
+
+
+
+                                        
