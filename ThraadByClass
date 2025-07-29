@@ -1,0 +1,40 @@
+import java.lang.Thread;
+class MyThread extends Thread {
+
+
+
+
+        public void  myRun(){
+
+                System.out.println("In myRun()");
+                System.out.println(Thread.currentThread().getName());
+                System.out.println("Thread Name:"+Thread.currentThread().getName()+":ThreadPriority:"+Thread.currentThread().getPriority());
+                System.out.println("Thread javlcha :"+ getName()+" Tyachi Priority:"+getPriority());
+                System.out.println();
+        }
+
+
+        public void run(){
+
+                System.out.println("in run()");
+                System.out.println("Thread Name:"+Thread.currentThread().getName()+":ThreadPriority:"+Thread.currentThread().getPriority());
+                System.out.println("Thread javlcha :"+ getName()+" Tyachi Priority:"+getPriority());
+
+                System.out.println();
+
+
+        }
+}
+class Client{
+        public static void main(String args[])throws InterruptedException{
+                MyThread th = new MyThread();
+
+               Thread.currentThread().setPriority(25);
+
+                System.out.println("Thread Name:"+Thread.currentThread().getName()+":ThreadPriority:"+Thread.currentThread().getPriority());
+
+                th.start();
+                Thread.sleep(22);
+                th.myRun();
+
+        }
